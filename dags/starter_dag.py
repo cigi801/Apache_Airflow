@@ -18,10 +18,10 @@ from utils import get_snowflake_connection
 # -------------------------------------------------------------------
 # Configuration
 # -------------------------------------------------------------------
-ON_OFF_SNOWFLAKE_LOAD_ENABLED = False  # Set to True to enable Snowflake loading
+ON_OFF_SNOWFLAKE_LOAD_ENABLED = True  # Set to True to enable Snowflake loading
 SNOWFLAKE_DATABASE = os.getenv("SNOWFLAKE_DATABASE", "PROJECT_DB") # Default to PROJECT_DB
 SNOWFLAKE_SCHEMA = os.getenv("SNOWFLAKE_SCHEMA", "RAW") # Default to RAW
-SNOWFLAKE_TABLE = "BORED_API_ACTIVITIES" # Table name for Bored API data
+SNOWFLAKE_TABLE = "STARTER_DAG_OWENS_C" # Table name for Bored API data
 
 @dag(
     dag_id="starter_dag",
@@ -150,7 +150,7 @@ def starter_dag_elt():
             # Create table if it doesn't exist (DML based on DataFrame columns)
             # This is a basic example; for production, use DDL in version control.
             # Example DDL for your Snowflake table (run this manually in Snowflake once):
-            #
+            
             # CREATE TABLE IF NOT EXISTS PROJECT_DB.RAW.STARTER_DAG_LASTNAME_FI (
             #     ACTIVITY_IDEA VARCHAR,
             #     CATEGORY VARCHAR,
